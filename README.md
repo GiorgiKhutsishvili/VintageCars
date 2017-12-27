@@ -1,6 +1,8 @@
 ﻿# VintageCars
 Vintage Cars, Modify, Buy, Repair.
 
+მონაცემთა ბაზა 1 საათი.
+
 Home | მთავარი
 მენიუ 4 სთ
 სლაიდი 2 სთ
