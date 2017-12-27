@@ -2,6 +2,10 @@
 Vintage Cars, Modify, Buy, Repair.
 
 მონაცემთა ბაზა 1 საათი.
+Login Page | ავტორიზაციის გვერდი 1 საათი.
+Contact form | კონტაქტის ფორმა 1 საათი.
+
+
 
 Home | მთავარი
 მენიუ 4 სთ
