@@ -1,0 +1,51 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+/*input,
+select,
+textarea {
+    max-width: 280px;
+}*/
+
+/*Email And Password Inputs*/
+.email{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: 'Montserrat', sans-serif;
+    width: 90%;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.54);
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.password{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.54);
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+/*For Inputs*/
