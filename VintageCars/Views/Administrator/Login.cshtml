@@ -15,7 +15,7 @@
     <!-- Main-Content -->
     <div class="main-w3layouts-form">
         <h2>Login To Admin Panel</h2>
-        <form action="" method="post">
+        <form action="/Administrator/Login" method="post">
             <div class="fields-w3-agileits">
                 <span class="fa fa-user" aria-hidden="true"></span>
                 @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "email" } })
@@ -28,6 +28,7 @@
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "password" } })
             </div>
             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <p style="color:#e80c4d">@ViewBag.message</p>
             <div style="margin-top:25px"></div>
             <input class="login" type="submit" value="Login" />
         </form>

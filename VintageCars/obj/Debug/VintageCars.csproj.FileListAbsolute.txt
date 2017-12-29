@@ -136,3 +136,7 @@ C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\bin\System.Web.Mvc.xml
 C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\obj\Debug\VintageCars.csprojResolveAssemblyReference.cache
 C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\obj\Debug\VintageCars.dll
 C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\obj\Debug\VintageCars.pdb
+C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.dll
+C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.dll
+C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.xml
+C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.xml

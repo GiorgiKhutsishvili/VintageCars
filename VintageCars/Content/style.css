@@ -233,10 +233,10 @@ img {
 
 /*--end reset--*/
 
-loginpage {
+.loginpage {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 100%;
-	background: url(../Img/banner.jpg)no-repeat center top;
+	background: url(/Img/banner.jpg)no-repeat center top;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
