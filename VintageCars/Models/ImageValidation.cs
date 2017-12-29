@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VintageCars.Models
 {
-    [Table("ImageTbl")]
+    
     public class ImageValidation
     {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "აირჩიეთ ფაილი")]
-        public HttpPostedFileBase file { get; set; }
 
-        [Display(Name = "test")]
-        [Required(ErrorMessage = "დასათაურება")]
+
+        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        //[Required]
+        [Required(ErrorMessage = "აირჩიეთ ფაილი")]
+        [DataType(DataType.Upload)]
+        public HttpPostedFileBase postedFile { get; set; }
+
+        [Required(ErrorMessage = "ჩაწერეთ დასათაურება")]
         public string Title { get; set; }
     }
 }

@@ -60,44 +60,55 @@ namespace VintageCars.Controllers
 
         public ActionResult Addimage()
         {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
             return View();
         }
 
         [HttpPost]
-        public ActionResult Addimage(ImageValidation image, FormCollection fc, HttpPostedFileBase file)
+        public ActionResult Addimage(ImageValidation image, HttpPostedFileBase postedFile)
         {
             ImageTbl tbl = new ImageTbl();
 
             var allowedExtensions = new[] {
-            ".Jpg", ".png", ".jpg", "jpeg"
+            ".Jpg", ".png", ".jpg", ".jpeg"
             };
 
-            var imgId = db.ImageTbl.Where(x => x.Id == x.Id).FirstOrDefault();
-            //int id = Convert.ToInt32(Request.Form["id"]);
-            tbl.Id = Convert.ToInt32(imgId);
-            tbl.Image_url = file.ToString();
-            tbl.Title = image.Title;
+            if (postedFile == null || image.Title == null)
+            {
+                return View();
+            }
 
-            var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-img.jpg)
-            var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)
+            var fileName = Path.GetFileName(postedFile.FileName); //getting only file name(ex-img.jpg)
+            var ext = Path.GetExtension(postedFile.FileName); //getting the extension(ex-.jpg)
+
+            
 
             if (allowedExtensions.Contains(ext)) //check what type of extension  
             {
                 string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension
-                string myfile = name + "_" + tbl.Id + ext; //appending the name with id
+                string myfile = name + "_" + ext; //appending the name with ext
 
                 // store the file inside ~/project folder(Img)
                 var path = Path.Combine(Server.MapPath("~/Img"), myfile);
+
+                tbl.Image_url = image.postedFile.ToString();
+                tbl.Title = image.Title;
                 tbl.Image_url = path;
                 tbl.CarPicture = name;
                 tbl.Date = DateTime.Now;
                 db.ImageTbl.Add(tbl);
                 db.SaveChanges();
-                file.SaveAs(path);
+                postedFile.SaveAs(path);
+
+                return RedirectToAction("Addimage", "Administrator");
             }
+           
             else
             {
-                ViewBag.message = "Please choose only Image file";
+                ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .Jpg, .png, .jpg, jpeg";
             }
 
             return View();
