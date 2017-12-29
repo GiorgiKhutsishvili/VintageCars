@@ -25,10 +25,10 @@ namespace VintageCars.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AdminTbl> AdminTbls { get; set; }
-        public virtual DbSet<ImageTbl> ImageTbls { get; set; }
-        public virtual DbSet<ServiceTbl> ServiceTbls { get; set; }
-        public virtual DbSet<SocialLinksTbl> SocialLinksTbls { get; set; }
-        public virtual DbSet<SubscriberTbl> SubscriberTbls { get; set; }
+        public virtual DbSet<AdminTbl> AdminTbl { get; set; }
+        public virtual DbSet<ImageTbl> ImageTbl { get; set; }
+        public virtual DbSet<ServiceTbl> ServiceTbl { get; set; }
+        public virtual DbSet<SocialLinksTbl> SocialLinksTbl { get; set; }
+        public virtual DbSet<SubscriberTbl> SubscriberTbl { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace VintageCars.Controllers
     public class AdministratorController : Controller
     {
 
+
         VintageCarsDBEntities db = new VintageCarsDBEntities();
         
 
@@ -26,7 +27,7 @@ namespace VintageCars.Controllers
         [HttpPost]
         public ActionResult Login(Login login)
         {
-            AdminTbl admin = db.AdminTbls.FirstOrDefault(x => x.Email == login.Email && x.Password == login.Password); 
+            AdminTbl admin = db.AdminTbl.FirstOrDefault(x => x.Email == login.Email && x.Password == login.Password); 
             
             if(admin == null)
             {
@@ -49,6 +50,10 @@ namespace VintageCars.Controllers
 
         public ActionResult Adminpanel()
         {
+            if(Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
             return View();
         }
 
@@ -67,7 +72,9 @@ namespace VintageCars.Controllers
             ".Jpg", ".png", ".jpg", "jpeg"
             };
 
-            tbl.Id = image.Id;
+            var imgId = db.ImageTbl.Where(x => x.Id == x.Id).FirstOrDefault();
+            //int id = Convert.ToInt32(Request.Form["id"]);
+            tbl.Id = Convert.ToInt32(imgId);
             tbl.Image_url = file.ToString();
             tbl.Title = image.Title;
 
@@ -84,7 +91,7 @@ namespace VintageCars.Controllers
                 tbl.Image_url = path;
                 tbl.CarPicture = name;
                 tbl.Date = DateTime.Now;
-                db.ImageTbls.Add(tbl);
+                db.ImageTbl.Add(tbl);
                 db.SaveChanges();
                 file.SaveAs(path);
             }

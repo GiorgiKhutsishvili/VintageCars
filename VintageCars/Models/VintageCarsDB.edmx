@@ -110,11 +110,11 @@
           <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="VintageCarsDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
-          <EntitySet Name="ImageTbls" EntityType="Self.ImageTbl" />
-          <EntitySet Name="ServiceTbls" EntityType="Self.ServiceTbl" />
-          <EntitySet Name="SocialLinksTbls" EntityType="Self.SocialLinksTbl" />
-          <EntitySet Name="SubscriberTbls" EntityType="Self.SubscriberTbl" />
+          <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
+          <EntitySet Name="ImageTbl" EntityType="Self.ImageTbl" />
+          <EntitySet Name="ServiceTbl" EntityType="Self.ServiceTbl" />
+          <EntitySet Name="SocialLinksTbl" EntityType="Self.SocialLinksTbl" />
+          <EntitySet Name="SubscriberTbl" EntityType="Self.SubscriberTbl" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -122,7 +122,7 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="VintageCarsDBModelStoreContainer" CdmEntityContainer="VintageCarsDBEntities">
-          <EntitySetMapping Name="AdminTbls">
+          <EntitySetMapping Name="AdminTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.AdminTbl">
               <MappingFragment StoreEntitySet="AdminTbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -131,7 +131,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ImageTbls">
+          <EntitySetMapping Name="ImageTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.ImageTbl">
               <MappingFragment StoreEntitySet="ImageTbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -142,7 +142,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ServiceTbls">
+          <EntitySetMapping Name="ServiceTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.ServiceTbl">
               <MappingFragment StoreEntitySet="ServiceTbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -152,7 +152,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SocialLinksTbls">
+          <EntitySetMapping Name="SocialLinksTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
               <MappingFragment StoreEntitySet="SocialLinksTbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -162,7 +162,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SubscriberTbls">
+          <EntitySetMapping Name="SubscriberTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.SubscriberTbl">
               <MappingFragment StoreEntitySet="SubscriberTbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -187,7 +187,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

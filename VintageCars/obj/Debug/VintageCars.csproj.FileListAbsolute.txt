@@ -140,3 +140,7 @@ C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.dll
 C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.dll
 C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.xml
 C:\Users\Admin\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.xml
+C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.dll
+C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.dll
+C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.xml
+C:\Users\GND\Documents\GitHub\VintageCars\VintageCars\bin\EntityFramework.SqlServer.xml

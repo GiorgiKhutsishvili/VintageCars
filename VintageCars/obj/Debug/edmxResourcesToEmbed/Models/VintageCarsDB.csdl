@@ -47,10 +47,10 @@
     <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="VintageCarsDBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="AdminTbls" EntityType="Self.AdminTbl" />
-    <EntitySet Name="ImageTbls" EntityType="Self.ImageTbl" />
-    <EntitySet Name="ServiceTbls" EntityType="Self.ServiceTbl" />
-    <EntitySet Name="SocialLinksTbls" EntityType="Self.SocialLinksTbl" />
-    <EntitySet Name="SubscriberTbls" EntityType="Self.SubscriberTbl" />
+    <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
+    <EntitySet Name="ImageTbl" EntityType="Self.ImageTbl" />
+    <EntitySet Name="ServiceTbl" EntityType="Self.ServiceTbl" />
+    <EntitySet Name="SocialLinksTbl" EntityType="Self.SocialLinksTbl" />
+    <EntitySet Name="SubscriberTbl" EntityType="Self.SubscriberTbl" />
   </EntityContainer>
 </Schema>

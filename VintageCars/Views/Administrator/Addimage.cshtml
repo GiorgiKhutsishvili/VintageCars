@@ -12,11 +12,12 @@
     }
 </script>
 
-@using(Html.BeginForm("Addimage", "Administrator", FormMethod.Post, new
+@using (Html.BeginForm("Addimage", "Administrator", FormMethod.Post, new
 {
     enctype = "multipart/form-data"
 }))
 {
+    @Html.AntiForgeryToken()
     <div class="carImage">
         <img id="carImg" height="100" width="90" style="border:solid" />
     </div>
