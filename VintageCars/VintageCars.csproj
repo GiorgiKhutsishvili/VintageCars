@@ -131,7 +131,7 @@
       <DependentUpon>VintageCarsDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Img\banner.jpg" />
+    <Content Include="Content\Img\banner.jpg" />
     <Content Include="Models\VintageCarsDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VintageCarsDB.edmx</DependentUpon>
@@ -163,6 +163,7 @@
     <Compile Include="Models\AdminTbl.cs">
       <DependentUpon>VintageCarsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConsumedModels.cs" />
     <Compile Include="Models\ImageTbl.cs">
       <DependentUpon>VintageCarsDB.tt</DependentUpon>
     </Compile>

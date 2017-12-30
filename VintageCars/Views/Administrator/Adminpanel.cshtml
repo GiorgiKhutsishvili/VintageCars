@@ -1,4 +1,13 @@
-﻿<nav class="navbar navbar-inverse">
+﻿@model VintageCars.Models.ConsumedModels
+
+@{ 
+    var imageTbl = Model.imageTbl;
+    var serviceTbl = Model.serviceTbl;
+    var socialLinksTbl = Model.socialLinksTbl;
+    var subscriberTbl = Model.subscriberTbl;
+}
+
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -9,7 +18,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="/Administrator/Adminpanel">Home</a></li>
                 <li><a href="/Administrator/Addimage">Add Image</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Social Links</a></li>
@@ -46,3 +55,27 @@
         </div>
     </div>
 </div>*@
+
+
+<div style="overflow-x:auto;">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>სურათი</th>
+            <th>სათაური</th>
+        </tr>
+        @foreach (var item in imageTbl)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td><img class="img-responsive" src='@Url.Action("Img","Content", new { id = item.CarPicture + item.})' /></td>
+                <td>@item.Title</td>
+                <td><input id="@item.Id" class="editBtn" type="button" value="რედაქტირება" title="რედაქტირება"></td>
+                <td><input id="@item.Id" class="deleteBtn" type="button" value="წაშლა" title="წაშლა"></td>
+            </tr>
+            
+        }
+    </table>
+</div>
+
+

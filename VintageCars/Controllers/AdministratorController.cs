@@ -54,7 +54,16 @@ namespace VintageCars.Controllers
             {
                 return RedirectToAction("Login", "Administrator");
             }
-            return View();
+
+            var result = new ConsumedModels
+            {
+                imageTbl = db.ImageTbl.ToList(),
+                serviceTbl = db.ServiceTbl.ToList(),
+                socialLinksTbl = db.SocialLinksTbl.ToList(),
+                subscriberTbl = db.SubscriberTbl.ToList()
+            };
+            
+            return View(result);
         }
 
 
@@ -84,7 +93,7 @@ namespace VintageCars.Controllers
             var fileName = Path.GetFileName(postedFile.FileName); //getting only file name(ex-img.jpg)
             var ext = Path.GetExtension(postedFile.FileName); //getting the extension(ex-.jpg)
 
-            
+            //extension დასამატებელია
 
             if (allowedExtensions.Contains(ext)) //check what type of extension  
             {
@@ -103,12 +112,12 @@ namespace VintageCars.Controllers
                 db.SaveChanges();
                 postedFile.SaveAs(path);
 
-                return RedirectToAction("Addimage", "Administrator");
+                return RedirectToAction("Adminpanel", "Administrator");
             }
            
             else
             {
-                ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .Jpg, .png, .jpg, jpeg";
+                ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .JPG, .png, .jpg, jpeg";
             }
 
             return View();
