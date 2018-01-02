@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VintageCarsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VintageCarsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AdminTbl">
           <Key>
             <PropertyRef Name="Id" />
@@ -21,6 +21,7 @@
           <Property Name="Image_url" Type="nvarchar(max)" Nullable="false" />
           <Property Name="CarPicture" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ServiceTbl">
@@ -58,8 +59,7 @@
           <EntitySet Name="SocialLinksTbl" EntityType="Self.SocialLinksTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SubscriberTbl" EntityType="Self.SubscriberTbl" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VintageCarsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -80,6 +80,7 @@
           <Property Name="CarPicture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ServiceTbl">
           <Key>
@@ -134,6 +135,7 @@
           <EntitySetMapping Name="ImageTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.ImageTbl">
               <MappingFragment StoreEntitySet="ImageTbl">
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Image_url" ColumnName="Image_url" />
                 <ScalarProperty Name="CarPicture" ColumnName="CarPicture" />

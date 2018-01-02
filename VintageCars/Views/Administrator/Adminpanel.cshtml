@@ -31,49 +31,49 @@
     </div>
 </nav>
 
-@*<div class="container-fluid text-center">
-    <div class="row content">
-        <div class="col-sm-2 sidenav">
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
-        </div>
-        <div class="col-sm-8 text-left">
-            <h1>Welcome</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <hr>
-            <h3>Test</h3>
-            <p>Lorem ipsum...</p>
-        </div>
-        <div class="col-sm-2 sidenav">
-            <div class="well">
-                <p>ADS</p>
-            </div>
-            <div class="well">
-                <p>ADS</p>
-            </div>
-        </div>
-    </div>
-</div>*@
 
 
-<div style="overflow-x:auto;">
-    <table>
+
+
+
+
+
+
+
+<div class="container-fluid" style="margin-top:100px; overflow-x:auto;" id="tableContainer">
+
+    <table id="tbl" style="margin-top:10px;" class="table">
         <tr>
             <th>Id</th>
-            <th>სურათი</th>
-            <th>სათაური</th>
+            <th>
+                სურათი
+            </th>
+            <th>
+                სათაური
+            </th>
+            <th></th>
+            <th></th>
         </tr>
+
         @foreach (var item in imageTbl)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td><img class="img-responsive" src='@Url.Action("Img","Content", new { id = item.CarPicture + item.})' /></td>
-                <td>@item.Title</td>
-                <td><input id="@item.Id" class="editBtn" type="button" value="რედაქტირება" title="რედაქტირება"></td>
-                <td><input id="@item.Id" class="deleteBtn" type="button" value="წაშლა" title="წაშლა"></td>
+            <tr class="PostedData">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    <img class="posted-img" src='@Url.Action("Img" ,"Content", new { id = item.CarPicture + item.Extension})' />
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    <a href="/Administrator/Edit/@item.Id"><input class="editBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
+                </td>
+                <td>
+                    <input id="@item.Id" class="deleteBtn" type="button" value="წაშლა" title="წაშლა">
+                </td>
             </tr>
-            
         }
     </table>
 </div>

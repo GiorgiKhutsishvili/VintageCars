@@ -16,6 +16,7 @@
     <Property Name="Image_url" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CarPicture" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Date" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="ServiceTbl">

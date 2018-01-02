@@ -7,12 +7,11 @@ using System.ComponentModel.DataAnnotations;
 namespace VintageCars.Models
 {
     
-    public class ImageValidation
+    public class ImageModel
     {
 
+        public Int32 Id { get; set; }
 
-        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
-        //[Required]
         [Required(ErrorMessage = "აირჩიეთ ფაილი")]
         [DataType(DataType.Upload)]
         public HttpPostedFileBase postedFile { get; set; }

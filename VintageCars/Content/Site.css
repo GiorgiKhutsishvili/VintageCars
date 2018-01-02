@@ -16,6 +16,10 @@ textarea {
     max-width: 280px;
 }*/
 
+a{
+    text-decoration: none !important;
+}
+
 /*Email And Password Inputs*/
 .email{
     font-family: inherit;
@@ -134,6 +138,7 @@ tr:nth-child(even){
 /**/
 
 
+/*inside table*/
 .editBtn{
     background-color: #4CAF50;
     border: none;
@@ -145,6 +150,7 @@ tr:nth-child(even){
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 165px;
 }
 
 .deleteBtn{
@@ -158,4 +164,58 @@ tr:nth-child(even){
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    width: 165px;
 }
+.posted-img{
+    width:200px;
+}
+/**/
+
+/*Edit Page*/
+.eTitle{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.save{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.cancel{
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.editPosted-img{
+    height:400px;
+}
+
+.editPage{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 2%;
+}
+/**/

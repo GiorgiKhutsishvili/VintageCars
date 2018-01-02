@@ -13,6 +13,7 @@
     <EntitySetMapping Name="ImageTbl">
       <EntityTypeMapping TypeName="VintageCarsDBModel.ImageTbl">
         <MappingFragment StoreEntitySet="ImageTbl">
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Image_url" ColumnName="Image_url" />
           <ScalarProperty Name="CarPicture" ColumnName="CarPicture" />
