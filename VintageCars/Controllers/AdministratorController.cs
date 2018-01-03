@@ -163,11 +163,6 @@ namespace VintageCars.Controllers
                     ".Jpg", ".png", ".jpg", ".jpeg"
                     };
 
-                    if (imageTbl.Title == null || file == null)
-                    {
-                        return View();
-                    }
-
                     var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-img.jpg)
                     var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)
 
@@ -215,6 +210,15 @@ namespace VintageCars.Controllers
             db.SaveChanges();
 
             return Json("DeleteSucceeded", JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult Services()
+        {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
+            return View();
         }
 
     }

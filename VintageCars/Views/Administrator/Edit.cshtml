@@ -25,6 +25,8 @@
 </nav>
 
 <script>
+
+    //ატვირთული სურათის არჩეულით ჩანაცვლება
     function show(input) {
         if (input.files && input.files[0]) {
             var filerdr = new FileReader();
@@ -34,16 +36,36 @@
             filerdr.readAsDataURL(input.files[0]);
         }
     }
+
+    function validate() {
+        valid = true;
+
+        if ($("#eTitle").val() == '') {
+            alert("Enter Title");
+            valid = false;
+            event.preventDefault();
+        }
+
+        if ($("#file").val() == '') {
+            alert("Choose File");
+            valid = false;
+            event.preventDefault();
+        }  
+    }
+
 </script>
 
 @using (Html.BeginForm("Edit", "Administrator", FormMethod.Post, new
 {
-    enctype = "multipart/form-data"
+    enctype = "multipart/form-data",
+    onsubmit = "return validate()"
 }))
 {
     @Html.AntiForgeryToken()
     <div class="editPage">
-        @Html.HiddenFor(model => model.Id)
+        <p id="hiddenId">
+            @Html.HiddenFor(model => model.Id)
+        </p>
         <div class="editTitle">
             @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "eTitle", placeholder = "Title", id = "eTitle", name = "title" } })
             <br />
@@ -53,13 +75,12 @@
             <img class="editPosted-img" src='@Url.Action("Img" ,"Content", new { id = Model.CarPicture + Model.Extension})' />
         </div>
         <div style="float:right" class="choose-file">
-            @*@Html.TextBoxFor(model => model.file, new { @class = "echooseFile", type = "file", title = "choose file", id = "file", name = "file", onchange = "show(this)" })
-            @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })*@
-            <input type="file" value="choose file" id="file" name="file" />
+            <input type="file" value="choose file" id="file" name="file" onchange="show(this)" />
         </div>
         <div class="editBtns">
-            <input class="save" type="submit" value="Save" title="save">
+            <input class="save" type="submit" value="Update" title="save" />
             @Html.ActionLink("Cancel", "Adminpanel", "Administrator", null, new { @class = "cancel", style = "color:white" })
         </div>
     </div>
+    
 }

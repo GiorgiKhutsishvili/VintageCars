@@ -18,5 +18,7 @@ namespace VintageCars.Models
         public string Image_url { get; set; }
         public string ServicePicture { get; set; }
         public string Title { get; set; }
+        public string Extension { get; set; }
+        public System.DateTime Date { get; set; }
     }
 }

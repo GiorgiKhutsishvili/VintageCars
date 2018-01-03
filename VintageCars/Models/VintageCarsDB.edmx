@@ -32,6 +32,8 @@
           <Property Name="Image_url" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ServicePicture" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SocialLinksTbl">
           <Key>
@@ -90,6 +92,8 @@
           <Property Name="Image_url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ServicePicture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="SocialLinksTbl">
           <Key>
@@ -147,6 +151,8 @@
           <EntitySetMapping Name="ServiceTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.ServiceTbl">
               <MappingFragment StoreEntitySet="ServiceTbl">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Image_url" ColumnName="Image_url" />
                 <ScalarProperty Name="ServicePicture" ColumnName="ServicePicture" />
