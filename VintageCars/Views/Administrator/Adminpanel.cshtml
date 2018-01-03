@@ -71,11 +71,26 @@
                     <a href="/Administrator/Edit/@item.Id"><input class="editBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
                 </td>
                 <td>
-                    <input id="@item.Id" class="deleteBtn" type="button" value="წაშლა" title="წაშლა">
+                    <input id="@item.Id" data-toggle="modal" data-target="#myModal" class="deleteBtn" type="button" value="წაშლა" title="წაშლა">
                 </td>
             </tr>
         }
     </table>
 </div>
 
+<!--Delete Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div style="width:369px;" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p><strong style="color:red; font-size:16px; margin-left:3px;">მონაცემების წაშლა! დარწმუნებული ხართ?</strong></p>
+                <br />
+                @*<button   class="btn btn-danger delete">წაშლა</button>*@
+                <input id="confirmDelete" type="button" data-toggle="modal" data-target="#myModal" class="confirmDelete" value="წაშლა" title="წაშლა">
+                <input style="float:right; position:absolute" id="dismiss" class="dismissBtn" type="button" data-dismiss="modal" value="გაუქმება" title="გაუქმება">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal -->
 

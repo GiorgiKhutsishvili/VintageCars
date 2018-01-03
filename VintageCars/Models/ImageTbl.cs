@@ -11,22 +11,13 @@ namespace VintageCars.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web;
     
     public partial class ImageTbl
     {
         public int Id { get; set; }
         public string Image_url { get; set; }
         public string CarPicture { get; set; }
-
-        [Required(ErrorMessage = "Title Is Required")]
         public string Title { get; set; }
-
-        [Required(ErrorMessage = "Choose File")]
-        [DataType(DataType.Upload)]
-        public HttpPostedFileBase editPostedFile { get; set; }
-
         public System.DateTime Date { get; set; }
         public string Extension { get; set; }
     }

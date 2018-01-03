@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -145,44 +147,74 @@ namespace VintageCars.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id, Title")] ImageTbl model)
+        public ActionResult Edit([Bind(Include = "Id, Title")] ImageTbl model, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var imageTbl = db.ImageTbl.Find(model.Id);
-                if(imageTbl == null)
+                if (ModelState.IsValid)
                 {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
+                    var imageTbl = db.ImageTbl.Find(model.Id);
+                    if (imageTbl == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
 
-                var allowedExtensions = new[] {
+                    var allowedExtensions = new[] {
                     ".Jpg", ".png", ".jpg", ".jpeg"
-                };
+                    };
 
-                if (imageTbl.Title == null || imageTbl.editPostedFile== null)
-                {
-                    return View();
+                    if (imageTbl.Title == null || file == null)
+                    {
+                        return View();
+                    }
+
+                    var fileName = Path.GetFileName(file.FileName); //getting only file name(ex-img.jpg)
+                    var ext = Path.GetExtension(file.FileName); //getting the extension(ex-.jpg)
+
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension
+                        string myfile = name + "_" + ext; //appending the name with ext
+
+                        // store the file inside ~/project folder(Img)
+                        var path = Path.Combine(Server.MapPath("~/Content/Img"), name + ext);
+
+                        imageTbl.Image_url = file.ToString();
+                        imageTbl.Title = model.Title;
+                        imageTbl.Image_url = path;
+                        imageTbl.CarPicture = name;
+                        imageTbl.Extension = ext;
+                        imageTbl.Date = DateTime.Now;
+                        db.SaveChanges();
+                        file.SaveAs(path);
+                        return RedirectToAction("Adminpanel", "Administrator");
+                    }
+
                 }
-
-                var fileName = Path.GetFileName(imageTbl.editPostedFile.FileName); //getting only file name(ex-img.jpg)
-                var ext = Path.GetExtension(imageTbl.editPostedFile.FileName); //getting the extension(ex-.jpg)
-
-                if (allowedExtensions.Contains(ext))
-                {
-                    string name = Path.GetFileNameWithoutExtension(fileName); //getting file name without extension
-                    string myfile = name + "_" + ext; //appending the name with ext
-
-                    // store the file inside ~/project folder(Img)
-                    var path = Path.Combine(Server.MapPath("~/Content/Img"), name + ext);
-
-                    imageTbl.Title = model.Title;
-                    imageTbl.editPostedFile = model.editPostedFile;
-                    db.SaveChanges();
-                    return RedirectToAction("Adminpanel", "Administrator");
-                }
-                
             }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
             return View(model);
+        }
+
+        [HttpPost]
+        public JsonResult Delete(int Id)
+        {
+            db.ImageTbl.Remove(db.ImageTbl.Where(x => x.Id == Id).FirstOrDefault());
+            db.SaveChanges();
+
+            return Json("DeleteSucceeded", JsonRequestBehavior.AllowGet);
         }
 
     }

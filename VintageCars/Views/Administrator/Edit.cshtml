@@ -36,7 +36,10 @@
     }
 </script>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Administrator", FormMethod.Post, new
+{
+    enctype = "multipart/form-data"
+}))
 {
     @Html.AntiForgeryToken()
     <div class="editPage">
@@ -50,8 +53,9 @@
             <img class="editPosted-img" src='@Url.Action("Img" ,"Content", new { id = Model.CarPicture + Model.Extension})' />
         </div>
         <div style="float:right" class="choose-file">
-            @Html.TextBoxFor(model => model.editPostedFile, new { @class = "echooseFile", type = "file", title = "choose file", id = "editPostedFile", name = "file", onchange = "show(this)" })
-            @Html.ValidationMessageFor(model => model.editPostedFile, "", new { @class = "text-danger" })
+            @*@Html.TextBoxFor(model => model.file, new { @class = "echooseFile", type = "file", title = "choose file", id = "file", name = "file", onchange = "show(this)" })
+            @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })*@
+            <input type="file" value="choose file" id="file" name="file" />
         </div>
         <div class="editBtns">
             <input class="save" type="submit" value="Save" title="save">
