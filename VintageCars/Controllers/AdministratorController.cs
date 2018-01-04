@@ -221,5 +221,49 @@ namespace VintageCars.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Services(ServicesModel services, HttpPostedFileBase serviceImg)
+        {
+            ServiceTbl tbl = new ServiceTbl();
+
+            var allowedExtensions = new[]
+            {
+                ".Jpg", ".svg", ".png", ".jpg", ".jpeg"
+            };
+
+            if(serviceImg == null || services.ServiceTitle == null)
+            {
+                return View();
+            }
+
+            var fileName = Path.GetFileName(serviceImg.FileName);
+            var ext = Path.GetExtension(serviceImg.FileName);
+
+            if (allowedExtensions.Contains(ext))
+            {
+                string name = Path.GetFileNameWithoutExtension(fileName);
+
+                var path = Path.Combine(Server.MapPath("~/Content/ServiceImages"), name + ext);
+
+                tbl.Image_url = services.serviceImg.ToString();
+                tbl.Title = services.ServiceTitle;
+                tbl.Image_url = path;
+                tbl.ServicePicture = name;
+                tbl.Extension = ext;
+                tbl.Date = DateTime.Now;
+                db.ServiceTbl.Add(tbl);
+                db.SaveChanges();
+                serviceImg.SaveAs(path);
+
+                return RedirectToAction("Adminpanel", "Administrator");
+            }
+            else
+            {
+                ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .jpg, .svg, .png, .jpg, jpeg";
+            }
+            return View();
+        }
+
     }
 }

@@ -220,7 +220,7 @@ tr:nth-child(even){
 }
 
 .confirmDelete{
-        background-color: #e80c4d;
+    background-color: #e80c4d;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -245,5 +245,35 @@ tr:nth-child(even){
   margin: 4px 2px;
   cursor: pointer;
   width: 165px;
+}
+/**/
+
+/*Services Page*/
+.addServiceBtn{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 0px;
+    cursor: pointer;
+    width: 165px;
+}
+.servicesPage{
+    margin: auto;
+    width: 24%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 4%;
+}
+
+.serviceTitle{
+    width: 100%;
+    padding: 12px 0px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 /**/
