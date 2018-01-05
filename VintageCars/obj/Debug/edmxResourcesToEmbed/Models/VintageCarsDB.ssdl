@@ -35,8 +35,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LinkName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SocialLinks" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImgName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Extension" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Image_url" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="SubscriberTbl">
     <Key>

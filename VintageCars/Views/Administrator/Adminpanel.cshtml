@@ -34,7 +34,7 @@
 
 
 
-<div class="container-fluid" style="margin-top:60px; overflow-x:auto;" id="tableContainer">
+<div class="imagesContainer" style="margin-top:60px; overflow-x:auto;" id="tableContainer">
     <p style="font-size:50px"><strong>Vintage Cars</strong></p>
     <table id="tbl" style="margin-top:10px;" class="table">
         <tr>
@@ -88,7 +88,7 @@
 </div>
 <!-- Delete Modal -->
 
-<div class="servicesContainer-fluid" style="margin-top:60px; overflow-x:auto;" id="servicesTableContainer">
+<div class="servicesContainer" style="margin-top:60px; overflow-x:auto;" id="servicesTableContainer">
     <p style="font-size:50px"><strong>Services</strong></p>
     <table id="servicesTbl" style="margin-top:10px;" class="table">
         <tr>
@@ -143,7 +143,7 @@
 
 
 <div class="socialLinksContainer" style="margin-top:60px; overflow-x:auto;" id="socialLinksTableContainer">
-    <p style="font-size:50px"><strong>Social Links</strong></p>
+    <p style="font-size:50px"><strong>Social Network</strong></p>
     <table id="socialLinksTbl" style="margin-top:10px;" class="table">
         <tr>
             <th>Id</th>
@@ -167,14 +167,18 @@
                     @item.Id
                 </td>
                 <td>
-                    @*<img class="servicesImg" src='@Url.Action("ServiceImages" ,"Content", new { id = item.ServicePicture + item.Extension})' />*@
+                    <img class="servicesImg" width="150px;" src='@Url.Action("SocialLinksImg" ,"Content", new { id = item.ImgName + item.Extension})' />
                 </td>
                 <td>
-                    @item.Name
+                    @item.LinkName
+                </td>
+                <td>
+                    <a href="">@item.SocialLinks</a>
                 </td>
                 <td>
                     <a href="/Administrator/EditSocialLink/@item.Id"><input class="socEditBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
                 </td>
+                <td></td>
             </tr>
         }
     </table>

@@ -223,6 +223,7 @@
     <Content Include="Views\Administrator\Services.cshtml" />
     <Content Include="Views\Administrator\EditServices.cshtml" />
     <Content Include="Views\Administrator\AddSocialLinks.cshtml" />
+    <Content Include="Views\Administrator\EditSocialLink.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -233,6 +234,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\ServiceImages\" />
+    <Folder Include="Content\SocialLinksImg\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

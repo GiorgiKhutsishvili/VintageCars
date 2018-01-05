@@ -40,8 +40,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LinkName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SocialLinks" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ImgName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Image_url" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SubscriberTbl">
           <Key>
@@ -116,8 +120,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SocialLinks" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ImgName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Image_url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -172,8 +180,12 @@
           <EntitySetMapping Name="SocialLinksTbl">
             <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
               <MappingFragment StoreEntitySet="SocialLinksTbl">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="ImgName" ColumnName="ImgName" />
                 <ScalarProperty Name="SocialLinks" ColumnName="SocialLinks" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="LinkName" ColumnName="LinkName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

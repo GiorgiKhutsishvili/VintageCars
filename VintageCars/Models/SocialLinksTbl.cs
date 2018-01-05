@@ -15,7 +15,11 @@ namespace VintageCars.Models
     public partial class SocialLinksTbl
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string LinkName { get; set; }
         public string SocialLinks { get; set; }
+        public string ImgName { get; set; }
+        public string Extension { get; set; }
+        public string Image_url { get; set; }
+        public System.DateTime Date { get; set; }
     }
 }

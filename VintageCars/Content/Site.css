@@ -135,6 +135,14 @@ th, td{
 tr:nth-child(even){
     background-color: #f2f2f2
 }
+
+.imagesContainer{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 4px;
+  margin-left: 4px;
+  border: 2px solid #808080;
+}
 /**/
 
 
@@ -171,7 +179,7 @@ tr:nth-child(even){
 }
 /**/
 
-/*Edit Page*/
+/*Image Edit Page*/
 .eTitle{
   width: 50%;
   padding: 12px 20px;
@@ -307,11 +315,12 @@ tr:nth-child(even){
 /**/
 
 /*services table*/
-.servicesContainer-fluid{
-    padding-right: 20px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+.servicesContainer{
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: 4px;
+      margin-left: 4px;
+      border: 2px solid #808080;
 }
 
 .confirmDeleteService{
@@ -387,7 +396,31 @@ tr:nth-child(even){
 
 /**/
 
-/*Social Links Page*/
+/*Social Links Table*/
+.socEditBtn{
+    background-color: #0094ff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 165px;
+}
+/**/
+
+/*Add Social Links Page*/
+.socialLinksContainer{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 4px;
+  margin-left: 4px;
+  margin-bottom: 5px;
+  border: 2px solid #808080;
+}
 .socialLinksPage{
     margin: auto;
     width: 45%;
@@ -442,5 +475,56 @@ tr:nth-child(even){
     margin: auto;
     width: 44%;
     margin-top: 4%;
+}
+/**/
+
+/*Edit Social Links Page*/
+.editSocialLinkPage{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 2%;
+}
+.socialLinkTitle{
+    width: 100%;
+    padding: 12px 11px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.SocialLinks{
+    width: 100%;
+    padding: 12px 11px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.updateSocLink{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.cancelSocLink{
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
 }
 /**/

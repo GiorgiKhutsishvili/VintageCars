@@ -10,9 +10,13 @@ namespace VintageCars.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "სავალდებულო ველი")]
-        public string Name { get; set; }
+        public string LinkName { get; set; }
 
         [Required(ErrorMessage = "სავალდებულო ველი")]
         public string SocialLinks { get; set; }
+
+        [DataType(DataType.Upload)]
+        [Required(ErrorMessage = "აირჩიეთ ფაილი")]
+        public HttpPostedFileBase file { get; set; }
     }
 }

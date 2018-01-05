@@ -1,0 +1,98 @@
+﻿@model VintageCars.Models.SocialLinksTbl
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Administrator/Adminpanel">Home</a></li>
+                <li><a href="/Administrator/Addimage">Add Image</a></li>
+                <li><a href="/Administrator/Services">Services</a></li>
+                <li><a href="/Administrator/AddSocialLinks">Social Links</a></li>
+                <li><a href="#">Subscribers</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Administrator/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<script>
+
+    //ატვირთული სურათის არჩეულით ჩანაცვლება
+    function showSocLinkImg(input) {
+        if (input.files && input.files[0]) {
+            var filerdr = new FileReader();
+            filerdr.onload = function (e) {
+                $(".socLinkImg").attr('src', e.target.result);
+            }
+            filerdr.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function validateSocialLink() {
+        valid = true;
+
+        if ($("#LinkName").val() == '') {
+            alert("ჩაწერეთ სათაური");
+            valid = false;
+            event.preventDefault();
+        }
+
+        if ($("#SocialLinks").val() == '') {
+            alert("ჩაწერეთ სათაური");
+            valid = false;
+            event.preventDefault();
+        }
+
+        if ($("#file").val() == '') {
+            alert("აირჩიეთ ფაილი");
+            valid = false;
+            event.preventDefault();
+        }
+    }
+
+</script>
+
+
+
+@using (Html.BeginForm("EditSocialLink", "Administrator", FormMethod.Post, new
+{
+    enctype = "multipart/form-data",
+    onsubmit = "return validateSocialLink()"
+}))
+{
+    @Html.AntiForgeryToken()
+    <div class="editSocialLinkPage">
+        @Html.HiddenFor(model => model.Id)
+        <div class="editsocialLinkTitle">
+            @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @class = "socialLinkTitle", id = "LinkName", name = "LinkName" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.LinkName, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.SocialLinks, new { htmlAttributes = new { @class = "SocialLinks", id = "SocialLinks", name = "SocialLinks" } })
+            <br />
+            @Html.ValidationMessageFor(model => model.SocialLinks, "", new { @class = "text-danger" })
+        </div>
+        <div class="editsocLinkImg">
+            <img class="socLinkImg" src='@Url.Action("SocialLinksImg" ,"Content", new { id = Model.ImgName + Model.Extension})' />
+        </div>
+        <div style="float:right" class="socCHoose-file">
+            <input type="file" value="choose file" id="file" name="file" onchange="showSocLinkImg(this)" />
+        </div>
+        <div class="socLinkBtns">
+            <input class="updateSocLink" type="submit" value="Update" title="განახლება" />
+            @Html.ActionLink("Cancel", "Adminpanel", "Administrator", null, new { @class = "cancelSocLink", style = "color:white" })
+            <p style="color:#e80c4d">@ViewBag.message</p>
+        </div>
+    </div>
+
+}

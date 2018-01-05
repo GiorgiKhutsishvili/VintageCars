@@ -27,7 +27,7 @@
 
 @using (Html.BeginForm("AddSocialLinks", "Administrator", FormMethod.Post, new
 {
-
+    enctype = "multipart/form-data",
 }))
 {
     @Html.AntiForgeryToken()
@@ -37,11 +37,15 @@
     <div class="socialLinksPage">
         @Html.HiddenFor(model => model.Id)
         <div class="addSocialLinks">
-            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "socialLinkName", id="Name", name = "Name" } })
-            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @class = "socialLinkName", id="Name", name = "Name" } })
+            @Html.ValidationMessageFor(model => model.LinkName, "", new { @class = "text-danger" })
 
             @Html.EditorFor(model => model.SocialLinks, new { htmlAttributes = new { @class = "socLink", id="SocialLinks", name = "SocialLinks" } })
             @Html.ValidationMessageFor(model => model.SocialLinks, "", new { @class = "text-danger" })
+        </div>
+        <div class="uploadFile">
+            @Html.TextBoxFor(model => model.file, new { @class = "soclinkImg", type = "file", title = "choose file", id = "file", name = "file"})
+            @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
         </div>
         <div class="addsocialLinksBtn">
             <input class="addSocLinks" type="submit" value="დამატება" title="დამატება" />

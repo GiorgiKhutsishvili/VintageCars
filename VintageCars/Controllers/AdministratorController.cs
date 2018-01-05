@@ -375,22 +375,129 @@ namespace VintageCars.Controllers
         //Add Social Links
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddSocialLinks(SocialLinksModel model)
+        public ActionResult AddSocialLinks(SocialLinksModel model, HttpPostedFileBase file)
         {
-            if(model.Name == null || model.SocialLinks == null)
+            if(model.LinkName == null || model.SocialLinks == null || model.file == null)
             {
                 return View();
             }
             else
             {
+                
                 SocialLinksTbl tbl = new SocialLinksTbl();
-                tbl.Name = model.Name;
-                tbl.SocialLinks = model.SocialLinks;
-                db.SocialLinksTbl.Add(tbl);
-                db.SaveChanges();
-                return RedirectToAction("Adminpanel", "Administrator");
+
+                var allowedExtensions = new[] {
+                    ".Jpg", ".png", ".jpg", ".jpeg"
+                };
+
+                var fileName = Path.GetFileName(file.FileName);
+                var ext = Path.GetExtension(file.FileName);
+
+
+                if (allowedExtensions.Contains(ext))
+                {
+                    string name = Path.GetFileNameWithoutExtension(fileName);
+
+                    var path = Path.Combine(Server.MapPath("~/Content/SocialLinksImg"), name + ext);
+
+                    tbl.LinkName = model.LinkName;
+                    tbl.SocialLinks = model.SocialLinks;
+                    tbl.ImgName = name;
+                    tbl.Extension = ext;
+                    tbl.Image_url = model.file.ToString();
+                    tbl.Image_url = path;
+                    tbl.Date = DateTime.Now;
+                    db.SocialLinksTbl.Add(tbl);
+                    db.SaveChanges();
+                    file.SaveAs(path);
+                    return RedirectToAction("Adminpanel", "Administrator");
+                }
+                else
+                {
+                    ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .Jpg, .png, .jpg, jpeg";
+                }
+                
             }
+            return View();
             
+        }
+
+
+        public ActionResult EditSocialLink(int? id)
+        {
+            if(Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            SocialLinksTbl socialLinksTbl = db.SocialLinksTbl.Find(id);
+            if(socialLinksTbl == null)
+            {
+                return HttpNotFound();
+            }
+            return View(socialLinksTbl);
+        }
+
+        //Edit Social Links
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditSocialLink([Bind(Include = "Id, LinkName, SocialLinks")] SocialLinksTbl model, HttpPostedFileBase file)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var socialLinksTbl = db.SocialLinksTbl.Find(model.Id);
+                    if (socialLinksTbl == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+
+                    var allowedExtensions = new[] {
+                    ".Jpg", ".png", ".jpg", ".jpeg"
+                    };
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    var ext = Path.GetExtension(file.FileName);
+
+                    if (allowedExtensions.Contains(ext))
+                    {
+
+                        string name = Path.GetFileNameWithoutExtension(fileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Content/SocialLinksImg"), name + ext);
+
+                        socialLinksTbl.Image_url = file.ToString();
+                        socialLinksTbl.LinkName= model.LinkName;
+                        socialLinksTbl.SocialLinks = model.SocialLinks;
+                        socialLinksTbl.Image_url = path;
+                        socialLinksTbl.ImgName= name;
+                        socialLinksTbl.Extension = ext;
+                        socialLinksTbl.Date = DateTime.Now;
+                        db.SaveChanges();
+                        file.SaveAs(path);
+                        return RedirectToAction("Adminpanel", "Administrator");
+                    }
+
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+
+            return View(model);
         }
 
     }

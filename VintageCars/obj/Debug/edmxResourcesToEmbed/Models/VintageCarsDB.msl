@@ -48,8 +48,12 @@
     <EntitySetMapping Name="SocialLinksTbl">
       <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
         <MappingFragment StoreEntitySet="SocialLinksTbl">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Image_url" ColumnName="Image_url" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="ImgName" ColumnName="ImgName" />
           <ScalarProperty Name="SocialLinks" ColumnName="SocialLinks" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LinkName" ColumnName="LinkName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
