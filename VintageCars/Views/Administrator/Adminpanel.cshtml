@@ -20,8 +20,8 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/Administrator/Adminpanel">Home</a></li>
                 <li><a href="/Administrator/Addimage">Add Image</a></li>
-                <li><a href="/Administrator/Services">Add Services</a></li>
-                <li><a href="#">Add Social Links</a></li>
+                <li><a href="/Administrator/Services">Services</a></li>
+                <li><a href="/Administrator/AddSocialLinks">Social Links</a></li>
                 <li><a href="#">Subscribers</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -72,7 +72,7 @@
     </table>
 </div>
 
-<!--Delete Modal -->
+<!--Delete Modal For Images -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
     <div style="width:369px;" class="modal-dialog" role="document">
         <div class="modal-content">
@@ -88,3 +88,94 @@
 </div>
 <!-- Delete Modal -->
 
+<div class="servicesContainer-fluid" style="margin-top:60px; overflow-x:auto;" id="servicesTableContainer">
+    <p style="font-size:50px"><strong>Services</strong></p>
+    <table id="servicesTbl" style="margin-top:10px;" class="table">
+        <tr>
+            <th>Id</th>
+            <th>
+                სურათი
+            </th>
+            <th>
+                სათაური
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in serviceTbl)
+        {
+            <tr class="servicesPostedData">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    <img class="servicesImg" src='@Url.Action("ServiceImages" ,"Content", new { id = item.ServicePicture + item.Extension})' />
+                </td>
+                <td>
+                    @item.Title
+                </td>
+                <td>
+                    <a href="/Administrator/EditServices/@item.Id"><input class="srvcEditBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
+                </td>
+                <td>
+                    <input id="@item.Id" data-toggle="modal" data-target="#servicesmodal" class="srvcDeleteBtn" type="button" value="წაშლა" title="წაშლა">
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<!--Delete Modal For Services -->
+<div class="modal fade srvcmodal" id="servicesmodal" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div style="width:369px;" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p><strong style="color:red; font-size:16px; margin-left:3px; color:#e80c4d;">მონაცემების წაშლა! დარწმუნებული ხართ?</strong></p>
+                <br />
+                <input id="confirmDeleteService" type="button" data-toggle="modal" data-target="#myModal" class="confirmDeleteService" value="წაშლა" title="წაშლა">
+                <input style="float:right; position:absolute" id="cancelserviceDelete" class="cancelserviceDelete" type="button" data-dismiss="modal" value="გაუქმება" title="გაუქმება">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delete Modal For Services -->
+
+
+<div class="socialLinksContainer" style="margin-top:60px; overflow-x:auto;" id="socialLinksTableContainer">
+    <p style="font-size:50px"><strong>Social Links</strong></p>
+    <table id="socialLinksTbl" style="margin-top:10px;" class="table">
+        <tr>
+            <th>Id</th>
+            <th>
+                სურათი
+            </th>
+            <th>
+                სახელი
+            </th>
+            <th>
+                მისამართი
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in socialLinksTbl)
+        {
+            <tr class="socialLinksPostedData">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @*<img class="servicesImg" src='@Url.Action("ServiceImages" ,"Content", new { id = item.ServicePicture + item.Extension})' />*@
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    <a href="/Administrator/EditSocialLink/@item.Id"><input class="socEditBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

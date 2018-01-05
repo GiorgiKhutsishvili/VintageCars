@@ -132,6 +132,7 @@
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DeleteImg.js" />
+    <Content Include="Scripts\DeleteServices.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -183,6 +184,7 @@
     <Compile Include="Models\ServiceTbl.cs">
       <DependentUpon>VintageCarsDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\SocialLinksModel.cs" />
     <Compile Include="Models\SocialLinksTbl.cs">
       <DependentUpon>VintageCarsDB.tt</DependentUpon>
     </Compile>
@@ -219,6 +221,8 @@
     <Content Include="Views\Administrator\Addimage.cshtml" />
     <Content Include="Views\Administrator\Edit.cshtml" />
     <Content Include="Views\Administrator\Services.cshtml" />
+    <Content Include="Views\Administrator\EditServices.cshtml" />
+    <Content Include="Views\Administrator\AddSocialLinks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

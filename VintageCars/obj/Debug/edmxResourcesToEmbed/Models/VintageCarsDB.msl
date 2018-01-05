@@ -34,16 +34,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SocialLinksTbl">
-      <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
-        <MappingFragment StoreEntitySet="SocialLinksTbl">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Facebook" ColumnName="Facebook" />
-          <ScalarProperty Name="GooglePlus" ColumnName="GooglePlus" />
-          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SubscriberTbl">
       <EntityTypeMapping TypeName="VintageCarsDBModel.SubscriberTbl">
         <MappingFragment StoreEntitySet="SubscriberTbl">
@@ -52,6 +42,15 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Subject" ColumnName="Subject" />
           <ScalarProperty Name="text" ColumnName="text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialLinksTbl">
+      <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
+        <MappingFragment StoreEntitySet="SocialLinksTbl">
+          <ScalarProperty Name="SocialLinks" ColumnName="SocialLinks" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

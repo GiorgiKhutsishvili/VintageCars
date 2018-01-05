@@ -1,4 +1,4 @@
-﻿@model VintageCars.Models.ImageTbl
+﻿@model VintageCars.Models.ServiceTbl
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -27,60 +27,60 @@
 <script>
 
     //ატვირთული სურათის არჩეულით ჩანაცვლება
-    function show(input) {
+    function showservicesImg(input) {
         if (input.files && input.files[0]) {
             var filerdr = new FileReader();
             filerdr.onload = function (e) {
-                $(".editPosted-img").attr('src', e.target.result);
+                $(".servicesEditPosted-img").attr('src', e.target.result);
             }
             filerdr.readAsDataURL(input.files[0]);
         }
     }
 
-    function validate() {
+    function validateServices() {
         valid = true;
 
-        if ($("#eTitle").val() == '') {
+        if ($("#eServiceTitle").val() == '') {
             alert("ჩაწერეთ სათაური");
             valid = false;
             event.preventDefault();
         }
 
         if ($("#file").val() == '') {
-            alert("აირჩიეთ სურათი");
+            alert("აირჩიეთ ფაილი");
             valid = false;
             event.preventDefault();
-        }  
+        }
     }
 
 </script>
 
-@using (Html.BeginForm("Edit", "Administrator", FormMethod.Post, new
+@using (Html.BeginForm("EditServices", "Administrator", FormMethod.Post, new
 {
     enctype = "multipart/form-data",
-    onsubmit = "return validate()"
+    onsubmit = "return validateServices()"
 }))
 {
     @Html.AntiForgeryToken()
-    <div class="editPage">
-        <p id="hiddenId">
+    <div class="editServicesPage">
             @Html.HiddenFor(model => model.Id)
-        </p>
-        <div class="editTitle">
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "eTitle", placeholder = "Title", id = "eTitle", name = "title" } })
+        <div class="editServiceTitle">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "eServiceTitle", placeholder = "Title", id = "eServiceTitle", name = "eServiceTitle" } })
             <br />
             @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
         </div>
-        <div class="editImg">
-            <img class="editPosted-img" src='@Url.Action("Img" ,"Content", new { id = Model.CarPicture + Model.Extension})' />
+        <div class="editServiceImg">
+            <img class="servicesEditPosted-img" src='@Url.Action("ServiceImages" ,"Content", new { id = Model.ServicePicture + Model.Extension})' />
         </div>
         <div style="float:right" class="choose-file">
-            <input type="file" value="choose file" id="file" name="file" onchange="show(this)" />
+            <input type="file" value="choose file" id="file" name="file" onchange="showservicesImg(this)" />
         </div>
-        <div class="editBtns">
-            <input class="save" type="submit" value="Update" title="save" />
-            @Html.ActionLink("Cancel", "Adminpanel", "Administrator", null, new { @class = "cancel", style = "color:white" })
+        <div class="editservicesBtns">
+            <input class="updateServices" type="submit" value="Update" title="განახლება" />
+            @Html.ActionLink("Cancel", "Adminpanel", "Administrator", null, new { @class = "cancelServices", style = "color:white" })
+            <p style="color:#e80c4d">@ViewBag.message</p>
         </div>
     </div>
-    
+
 }
+

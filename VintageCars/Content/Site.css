@@ -138,9 +138,9 @@ tr:nth-child(even){
 /**/
 
 
-/*inside table*/
+/*image table*/
 .editBtn{
-    background-color: #4CAF50;
+    background-color: #0094ff;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -167,7 +167,7 @@ tr:nth-child(even){
     width: 165px;
 }
 .posted-img{
-    width:200px;
+    width: 200px;
 }
 /**/
 
@@ -183,7 +183,7 @@ tr:nth-child(even){
   background-color: #4CAF50;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -197,7 +197,7 @@ tr:nth-child(even){
   background-color: #555;
   border: none;
   color: white;
-  padding: 15px 29px;
+  padding: 15px 0px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -275,5 +275,172 @@ tr:nth-child(even){
     padding: 12px 0px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+.srvcEditBtn{
+    background-color: #0094ff;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 165px;
+}
+
+.srvcDeleteBtn{
+    background-color: #e80c4d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 165px;
+}
+/**/
+
+/*services table*/
+.servicesContainer-fluid{
+    padding-right: 20px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.confirmDeleteService{
+    background-color: #e80c4d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 165px;
+}
+
+.cancelserviceDelete{
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 165px;
+}
+/**/
+
+/*Edit Services Page*/
+.editServicesPage{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 2%;
+}
+.eServiceTitle{
+    width: 100%;
+    padding: 12px 11px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.updateServices{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.cancelServices{
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 29px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+/**/
+
+/*Social Links Page*/
+.socialLinksPage{
+    margin: auto;
+    width: 45%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 2%;
+}
+
+.socialLinkName{
+    width: 100%;
+    padding: 12px 11px;
+    margin: 8px 2px;
+    box-sizing: border-box;
+}
+
+.socLink{
+    width: 100%;
+    padding: 12px 11px;
+    margin: 8px 2px;
+    box-sizing: border-box;
+}
+
+.addSocLinks{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cancelSocialLinks{
+  background-color: #555;
+  border: none;
+  color: white;
+  padding: 15px 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.addsoclinkstxt{
+    margin: auto;
+    width: 44%;
+    margin-top: 4%;
 }
 /**/

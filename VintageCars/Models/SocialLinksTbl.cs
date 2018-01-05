@@ -15,8 +15,7 @@ namespace VintageCars.Models
     public partial class SocialLinksTbl
     {
         public int Id { get; set; }
-        public string Facebook { get; set; }
-        public string GooglePlus { get; set; }
-        public string Twitter { get; set; }
+        public string Name { get; set; }
+        public string SocialLinks { get; set; }
     }
 }

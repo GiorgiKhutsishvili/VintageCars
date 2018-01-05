@@ -27,6 +27,8 @@ namespace VintageCars.Controllers
             return View();
         }
         
+
+        //Admin Login
         [HttpPost]
         public ActionResult Login(Login login)
         {
@@ -58,6 +60,7 @@ namespace VintageCars.Controllers
                 return RedirectToAction("Login", "Administrator");
             }
 
+            //Display Data From DB
             var result = new ConsumedModels
             {
                 imageTbl = db.ImageTbl.ToList(),
@@ -79,6 +82,7 @@ namespace VintageCars.Controllers
             return View();
         }
 
+        //Add Images
         [HttpPost]
         public ActionResult Addimage(ImageModel image, HttpPostedFileBase postedFile)
         {
@@ -145,6 +149,7 @@ namespace VintageCars.Controllers
             return View(imageTbl);
         }
 
+        //Edit Images
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id, Title")] ImageTbl model, HttpPostedFileBase file)
@@ -203,6 +208,7 @@ namespace VintageCars.Controllers
             return View(model);
         }
 
+        //Delete Images
         [HttpPost]
         public JsonResult Delete(int Id)
         {
@@ -221,6 +227,7 @@ namespace VintageCars.Controllers
             return View();
         }
 
+        //Add Services
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Services(ServicesModel services, HttpPostedFileBase serviceImg)
@@ -263,6 +270,127 @@ namespace VintageCars.Controllers
                 ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .jpg, .svg, .png, .jpg, jpeg";
             }
             return View();
+        }
+
+
+        public ActionResult EditServices(int? id)
+        {
+            if(Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
+            if(id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ServiceTbl serviceTbl = db.ServiceTbl.Find(id);
+            if(serviceTbl == null)
+            {
+                return HttpNotFound();
+            }
+            return View(serviceTbl);
+        }
+
+        //Edit Services
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditServices([Bind(Include = "Id, Title")] ServiceTbl model, HttpPostedFileBase file)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var serviceTbl = db.ServiceTbl.Find(model.Id);
+                    if(serviceTbl == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+
+                    var allowedExtensions = new[] {
+                    ".Jpg", ".svg", ".png", ".jpg", ".jpeg"
+                    };
+
+                    var fileName = Path.GetFileName(file.FileName);
+                    var ext = Path.GetExtension(file.FileName);
+
+                    if (allowedExtensions.Contains(ext))
+                    {
+                        string name = Path.GetFileNameWithoutExtension(fileName);
+
+                        var path = Path.Combine(Server.MapPath("~/Content/ServiceImages"), name + ext);
+
+                        serviceTbl.Image_url = file.ToString();
+                        serviceTbl.Title = model.Title;
+                        serviceTbl.Image_url = path;
+                        serviceTbl.ServicePicture = name;
+                        serviceTbl.Extension = ext;
+                        serviceTbl.Date = DateTime.Now;
+                        db.SaveChanges();
+                        file.SaveAs(path);
+                        return RedirectToAction("Adminpanel", "Administrator");
+
+                    }
+                    else
+                    {
+                        ViewBag.message = "ატვირთეთ შემდეგი გაფართოების ფაილები: .jpg, .svg, .png, .jpg, jpeg";
+                    }
+                    return View();
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+        //Delete Services
+        [HttpPost]
+        public JsonResult DeleteServices(int Id)
+        {
+            db.ServiceTbl.Remove(db.ServiceTbl.Where(x => x.Id == Id).FirstOrDefault());
+            db.SaveChanges();
+
+            return Json("ServiceDeleteSucceeded", JsonRequestBehavior.AllowGet);
+        }
+
+        
+        public ActionResult AddSocialLinks()
+        {
+            if (Session["admin"] == null)
+            {
+                return RedirectToAction("Login", "Administrator");
+            }
+            return View();
+        }
+
+        //Add Social Links
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddSocialLinks(SocialLinksModel model)
+        {
+            if(model.Name == null || model.SocialLinks == null)
+            {
+                return View();
+            }
+            else
+            {
+                SocialLinksTbl tbl = new SocialLinksTbl();
+                tbl.Name = model.Name;
+                tbl.SocialLinks = model.SocialLinks;
+                db.SocialLinksTbl.Add(tbl);
+                db.SaveChanges();
+                return RedirectToAction("Adminpanel", "Administrator");
+            }
+            
         }
 
     }

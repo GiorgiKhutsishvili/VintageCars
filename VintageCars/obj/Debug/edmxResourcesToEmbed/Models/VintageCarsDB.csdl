@@ -17,7 +17,7 @@
     <Property Name="CarPicture" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Extension" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ServiceTbl">
     <Key>
@@ -29,15 +29,6 @@
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
-  <EntityType Name="SocialLinksTbl">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="GooglePlus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="SubscriberTbl">
     <Key>
@@ -53,7 +44,15 @@
     <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
     <EntitySet Name="ImageTbl" EntityType="Self.ImageTbl" />
     <EntitySet Name="ServiceTbl" EntityType="Self.ServiceTbl" />
-    <EntitySet Name="SocialLinksTbl" EntityType="Self.SocialLinksTbl" />
     <EntitySet Name="SubscriberTbl" EntityType="Self.SubscriberTbl" />
+    <EntitySet Name="SocialLinksTbl" EntityType="VintageCarsDBModel.SocialLinksTbl" />
   </EntityContainer>
+  <EntityType Name="SocialLinksTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SocialLinks" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

@@ -1,0 +1,52 @@
+﻿@model VintageCars.Models.SocialLinksModel
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Administrator/Adminpanel">Home</a></li>
+                <li><a href="/Administrator/Addimage">Add Image</a></li>
+                <li><a href="/Administrator/Services">Services</a></li>
+                <li><a href="/Administrator/AddSocialLinks">Social Links</a></li>
+                <li><a href="#">Subscribers</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/Administrator/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+@using (Html.BeginForm("AddSocialLinks", "Administrator", FormMethod.Post, new
+{
+
+}))
+{
+    @Html.AntiForgeryToken()
+    <div class="addsoclinkstxt">
+        <p style="font-size:50px" class="addsoclinkstxt">Add Social Links</p>
+    </div> 
+    <div class="socialLinksPage">
+        @Html.HiddenFor(model => model.Id)
+        <div class="addSocialLinks">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "socialLinkName", id="Name", name = "Name" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.SocialLinks, new { htmlAttributes = new { @class = "socLink", id="SocialLinks", name = "SocialLinks" } })
+            @Html.ValidationMessageFor(model => model.SocialLinks, "", new { @class = "text-danger" })
+        </div>
+        <div class="addsocialLinksBtn">
+            <input class="addSocLinks" type="submit" value="დამატება" title="დამატება" />
+            @Html.ActionLink("გაუქმება", "Adminpanel", "Administrator", null, new { @class = "cancelSocialLinks", style = "color:white" })
+        </div>
+    </div>
+
+}

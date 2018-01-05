@@ -28,7 +28,7 @@ namespace VintageCars.Models
         public virtual DbSet<AdminTbl> AdminTbl { get; set; }
         public virtual DbSet<ImageTbl> ImageTbl { get; set; }
         public virtual DbSet<ServiceTbl> ServiceTbl { get; set; }
-        public virtual DbSet<SocialLinksTbl> SocialLinksTbl { get; set; }
         public virtual DbSet<SubscriberTbl> SubscriberTbl { get; set; }
+        public virtual DbSet<SocialLinksTbl> SocialLinksTbl { get; set; }
     }
 }
