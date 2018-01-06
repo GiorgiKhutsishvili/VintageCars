@@ -16,7 +16,7 @@ namespace VintageCars.Models
         [DataType(DataType.Upload)]
         public HttpPostedFileBase postedFile { get; set; }
 
-        [Required(ErrorMessage = "ჩაწერეთ დასათაურება")]
+        [Required(ErrorMessage = "სავალდებულო ველი")]
         public string Title { get; set; }
     }
 }

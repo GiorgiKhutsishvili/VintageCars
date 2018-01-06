@@ -42,6 +42,9 @@
 }))
 {
     @Html.AntiForgeryToken()
+    <div class="addservices">
+        <p style="font-size:34px" class="addservices">Add Services</p>
+    </div>
     <div class="servicesPage">
         <div class="servicesImg">
             <img class="img-responsive" id="servicesImg" height="300" width="300" style="border:solid 1px;" />
@@ -54,7 +57,6 @@
 
         <div class="serviceTitle">
             @Html.EditorFor(model => model.ServiceTitle, new { htmlAttributes = new { @class = "serviceTitle", placeholder = "Title", id = "serviceTitle", name = "serviceTitle" } })
-            <br />
             @Html.ValidationMessageFor(model => model.ServiceTitle, "", new { @class = "text-danger" })
         </div>
 

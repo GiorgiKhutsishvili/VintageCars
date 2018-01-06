@@ -18,7 +18,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/Administrator/Adminpanel">Home</a></li>
+                <li class=""><a href="/Administrator/Adminpanel">Home</a></li>
                 <li><a href="/Administrator/Addimage">Add Image</a></li>
                 <li><a href="/Administrator/Services">Services</a></li>
                 <li><a href="/Administrator/AddSocialLinks">Social Links</a></li>
@@ -34,7 +34,7 @@
 
 
 
-<div class="imagesContainer" style="margin-top:60px; overflow-x:auto;" id="tableContainer">
+<div class="imagesContainer" id="tableContainer">
     <p style="font-size:50px"><strong>Vintage Cars</strong></p>
     <table id="tbl" style="margin-top:10px;" class="table">
         <tr>
@@ -151,7 +151,7 @@
                 სურათი
             </th>
             <th>
-                სახელი
+                ვებ გვერდი
             </th>
             <th>
                 მისამართი
@@ -177,6 +177,45 @@
                 </td>
                 <td>
                     <a href="/Administrator/EditSocialLink/@item.Id"><input class="socEditBtn" type="button" value="რედაქტირება" title="რედაქტირება"></a>
+                </td>
+                <td></td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="subscribersContainer" style="margin-top:60px; overflow-x:auto;" id="subscribersTableContainer">
+    <p style="font-size:50px"><strong>Subscribers</strong></p>
+    <table id="subscribersTbl" style="margin-top:10px;" class="table">
+        <tr>
+            <th>Id</th>
+            <th>
+                მომხმარებლის სახელი
+            </th>
+            <th>
+                ელ.ფოსტა
+            </th>
+            <th>
+                შევსების თარიღი
+            </th>
+            <th></th>
+            
+        </tr>
+
+        @foreach (var item in subscriberTbl)
+        {
+            <tr class="subscribersPostedData">
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Date.ToShortDateString()
                 </td>
                 <td></td>
             </tr>

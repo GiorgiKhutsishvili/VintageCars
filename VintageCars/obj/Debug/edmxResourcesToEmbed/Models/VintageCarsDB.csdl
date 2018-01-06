@@ -30,22 +30,12 @@
     <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
-  <EntityType Name="SubscriberTbl">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityContainer Name="VintageCarsDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AdminTbl" EntityType="Self.AdminTbl" />
     <EntitySet Name="ImageTbl" EntityType="Self.ImageTbl" />
     <EntitySet Name="ServiceTbl" EntityType="Self.ServiceTbl" />
-    <EntitySet Name="SubscriberTbl" EntityType="Self.SubscriberTbl" />
     <EntitySet Name="SocialLinksTbl" EntityType="VintageCarsDBModel.SocialLinksTbl" />
+    <EntitySet Name="SubscriberTbl" EntityType="VintageCarsDBModel.SubscriberTbl" />
   </EntityContainer>
   <EntityType Name="SocialLinksTbl">
     <Key>
@@ -57,6 +47,17 @@
     <Property Name="ImgName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Extension" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Image_url" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="SubscriberTbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Subject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

@@ -34,17 +34,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SubscriberTbl">
-      <EntityTypeMapping TypeName="VintageCarsDBModel.SubscriberTbl">
-        <MappingFragment StoreEntitySet="SubscriberTbl">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="text" ColumnName="text" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SocialLinksTbl">
       <EntityTypeMapping TypeName="VintageCarsDBModel.SocialLinksTbl">
         <MappingFragment StoreEntitySet="SocialLinksTbl">
@@ -54,6 +43,18 @@
           <ScalarProperty Name="ImgName" ColumnName="ImgName" />
           <ScalarProperty Name="SocialLinks" ColumnName="SocialLinks" />
           <ScalarProperty Name="LinkName" ColumnName="LinkName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriberTbl">
+      <EntityTypeMapping TypeName="VintageCarsDBModel.SubscriberTbl">
+        <MappingFragment StoreEntitySet="SubscriberTbl">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
