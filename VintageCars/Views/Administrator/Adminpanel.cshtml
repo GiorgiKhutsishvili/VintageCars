@@ -5,6 +5,8 @@
     var serviceTbl = Model.serviceTbl;
     var socialLinksTbl = Model.socialLinksTbl;
     var subscriberTbl = Model.subscriberTbl;
+    var countServices = Model.serviceTbl.Count();
+    var countSubscribers = Model.subscriberTbl.Count();
 }
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,9 +22,9 @@
             <ul class="nav navbar-nav">
                 <li class=""><a href="/Administrator/Adminpanel">Home</a></li>
                 <li><a href="/Administrator/Addimage">Add Image</a></li>
-                <li><a href="/Administrator/Services">Services</a></li>
+                <li><a href="/Administrator/Services">Services <span class="badge">@countServices</span></a></li>
                 <li><a href="/Administrator/AddSocialLinks">Social Links</a></li>
-                <li><a href="#">Subscribers</a></li>
+                <li><a href="#">Subscribers <span class="badge">@countSubscribers</span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/Administrator/Logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
