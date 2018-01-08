@@ -37,12 +37,13 @@
     <div class="socialLinksPage">
         @Html.HiddenFor(model => model.Id)
         <div class="addSocialLinks">
-            @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @class = "socialLinkName", id="Name", name = "Name" } })
+            @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @class = "form-control", placeholder = "სოციალური ქსელი", id="Name", name = "Name" } })
             @Html.ValidationMessageFor(model => model.LinkName, "", new { @class = "text-danger" })
-
-            @Html.EditorFor(model => model.SocialLinks, new { htmlAttributes = new { @class = "socLink", id="SocialLinks", name = "SocialLinks" } })
+            <br />
+            @Html.EditorFor(model => model.SocialLinks, new { htmlAttributes = new { @class = "form-control", placeholder = "მისამართი", id ="SocialLinks", name = "SocialLinks" } })
             @Html.ValidationMessageFor(model => model.SocialLinks, "", new { @class = "text-danger" })
         </div>
+        <br />
         <div class="uploadFile">
             @Html.TextBoxFor(model => model.file, new { @class = "soclinkImg", type = "file", title = "choose file", id = "file", name = "file"})
             @Html.ValidationMessageFor(model => model.file, "", new { @class = "text-danger" })
